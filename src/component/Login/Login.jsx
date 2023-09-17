@@ -7,6 +7,9 @@ function LoginPage({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // why is onSubmit called here?
+    // onSubmit is a prop passed to the LoginForm component
+    // onSubmit is a function that is passed from the parent component (App)
     onSubmit(username); // Pass the username to the parent component when the form is submitted
   };
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TransactionList } from "./TransactionList";
 import { fetchLedgerData } from "../../service/mockApi";
-import { Header } from "./Header";
+import { Header } from "./Top";
 
 
 function ProcessTransaction(props) {
@@ -14,7 +14,6 @@ function ProcessTransaction(props) {
         console.log(props.username)
         fetchLedgerData(props.username.toLowerCase())
             .then((ledgerData) => {
-                // if ledger data is nulll 
                 const uniqueActivityIds = new Set();
                 const uniqueTransactions = [];
                 for (const transaction of ledgerData) {

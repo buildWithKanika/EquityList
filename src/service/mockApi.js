@@ -1,3 +1,4 @@
+// user to userType
 async function fetchLedgerData(user){
     try{
         //const ledgerData = await import('../Data/simple_ledger.json');
