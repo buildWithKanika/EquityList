@@ -1,4 +1,8 @@
-// LoginForm.jsx
+/* this component is a form that takes in a username and passes it to the parent component (App)
+   we use this component to get the username from the user
+  we have three users in our database: complicated, simple, and duplicate
+  I have selected these usernames as we have three different types of transactions in our database
+  complicated , simple, and duplicate*/
 import React, { useState } from 'react';
 import '../style/Login.css'
 
@@ -7,9 +11,6 @@ function Login({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // why is onSubmit called here?
-    // onSubmit is a prop passed to the LoginForm component
-    // onSubmit is a function that is passed from the parent component (App)
     onSubmit(username); // Pass the username to the parent component when the form is submitted
   };
 

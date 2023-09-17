@@ -1,8 +1,9 @@
-// user to userType
+// Desc: mock api for fetching ledger data
+// in real time this will be replaced by actual api call which will fetch the data from bank server
 async function fetchLedgerData(user){
     try{
-        //const ledgerData = await import('../Data/simple_ledger.json');
-        // according to user name which can be complicated simple and duplicate call the ledger data
+        user=user.toLowerCase(); 
+        // ledgerData will have the data of the transactions   
         let ledgerData = null;
         switch(user){
             case 'complicated':
@@ -19,7 +20,6 @@ async function fetchLedgerData(user){
         }
 
         // read the file from data folder
-
         await new Promise(resolve => setTimeout(resolve, 1000));
         return ledgerData;
     }

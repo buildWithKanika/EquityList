@@ -1,6 +1,6 @@
 // TrancactionList component is used to display a list of transactions
 // Props passed to TransactionList component: 
-// - transactions: an array of transactions
+     // - transactions: an array of transaction
 import { TransactionItem } from "./TransactionItem";
 import React from "react";
 import "../style/Transaction.css"; 
