@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { LoginPage } from './component/login/Login.jsx'
+import { LoginPage } from './component/login/Login.jsx';
 import { ProcessTransaction } from './component/transaction/ProcessTransaction.js';
 
 function App() {
