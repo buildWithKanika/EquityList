@@ -37,12 +37,12 @@ function ProcessTransaction(props) {
 
                 // Set the formatted ledger data in the state
                 setLedger(formattedLedger);
-                setBalance(formattedLedger[0].balance || 0);
+                setBalance(formattedLedger[0]?.balance || 0);
             })
             .catch((error) => {
                 console.error('Error fetching ledger data:', error);
             });
-    }, []);
+    }, [props.username]);
 
     return (
         // if ledger data is nulll display user can be simple complicated or duplicate
