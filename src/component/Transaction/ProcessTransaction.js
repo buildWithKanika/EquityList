@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TransactionList } from "./TransactionList";
 import { fetchLedgerData } from "../../service/mockApi";
-import { Header } from "./Header";
+import { Header } from "./Header.jsx";
 
 
 function ProcessTransaction(props) {
