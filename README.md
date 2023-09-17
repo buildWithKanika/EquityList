@@ -1,8 +1,5 @@
-It appears that you're looking for a README file for a project related to managing equality lists, and you'd like to provide instructions on how to set up and use the project. Below is a README template that you can use:
 
----
-
-# Equality List Management Project
+# Equality List Project
 
 ## Introduction
 
