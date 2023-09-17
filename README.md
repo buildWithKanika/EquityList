@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This project is designed to manage equality lists effectively. It provides a user-friendly interface for managing three types of ledger data: simple, complicated, and duplicate. These types of data have been identified based on the provided assignment, which seemed to contain three distinct categories of ledger data.
+This project is designed to manage equality lists effectively. It provides a user-friendly interface for managing three types of ledger data: simple, complicated, and duplicate. These types of data have been identified based on the provided assignment, which seemed to contain three distinct categories of ledger data provided by bank api
 
 ## Getting Started
 
