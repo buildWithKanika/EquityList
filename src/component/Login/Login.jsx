@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import '../style/Login.css'
 
-function LoginPage({ onSubmit }) {
+function Login({ onSubmit }) {
   const [username, setUsername] = useState('');
 
   const handleSubmit = (e) => {
@@ -35,4 +35,4 @@ function LoginPage({ onSubmit }) {
   );
 }
 
-export {LoginPage};
+export {Login};

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { LoginPage } from './component/login/Login.jsx';
+import { Login } from './component/login/Login.jsx';
 import { ProcessTransaction } from './component/transaction/ProcessTransaction.js';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       {submitted ? (
         <ProcessTransaction username={username} />
       ) : (
-        <LoginPage onSubmit={handleFormSubmit} />
+        <Login onSubmit={handleFormSubmit} />
       )}
     </div>
   );
