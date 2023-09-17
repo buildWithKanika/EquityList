@@ -3,69 +3,81 @@ import { TransactionList } from "./TransactionList";
 import { fetchLedgerData } from "../../service/mockApi";
 import { Header } from "./Top";
 
-
 function ProcessTransaction(props) {
-    // State to hold ledger data
-    const [ledger, setLedger] = useState([]);
-    const [balance, setBalance] = useState(0);
+  // State to hold ledger data
+  const [ledger, setLedger] = useState([]);
+  const [balance, setBalance] = useState(0);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        // Fetch ledger data from the API
-        console.log(props.username)
-        fetchLedgerData(props.username.toLowerCase())
-            .then((ledgerData) => {
-                const uniqueActivityIds = new Set();
-                const uniqueTransactions = [];
-                for (const transaction of ledgerData) {
-                    if (!uniqueActivityIds.has(transaction.activity_id)) {
-                        uniqueActivityIds.add(transaction.activity_id);
-                        uniqueTransactions.push(transaction);
-                    }
-                }
-                
-                // Sort transactions by date
-                uniqueTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+  useEffect(() => {
+    // Fetch ledger data from the API
+    console.log(props.username);
+    fetchLedgerData(props.username.toLowerCase())
+      .then((ledgerData) => {
+        if (ledgerData.length === 0) {
+          setError("User not found");
+            setIsLoading(false);
+        } else {
+          const uniqueActivityIds = new Set();
+          const uniqueTransactions = [];
+          for (const transaction of ledgerData) {
+            if (!uniqueActivityIds.has(transaction.activity_id)) {
+              uniqueActivityIds.add(transaction.activity_id);
+              uniqueTransactions.push(transaction);
+            }
+          }
 
-                // Format ledger data for rendering
-                const formattedLedger = uniqueTransactions.map((transaction) => ({
-                    date: new Date(transaction.date).toLocaleDateString('en-GB'), // Format date as "dd/mm/yyyy"
-                    type: transaction.type,
-                    description: `${transaction.source.description} -> ${transaction.destination.description}`,
-                    amount: transaction.amount,
-                    balance: transaction.balance,
-                }));
+          // Sort transactions by date
+          uniqueTransactions.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
 
-                // Set the formatted ledger data in the state
-                setLedger(formattedLedger);
-                setBalance(formattedLedger[0]?.balance || 0);
-            })
-            .catch((error) => {
-                console.error('Error fetching ledger data:', error);
-            });
-    }, [props.username]);
+          // Format ledger data for rendering
+          const formattedLedger = uniqueTransactions.map((transaction) => ({
+            date: new Date(transaction.date).toLocaleDateString("en-GB"), // Format date as "dd/mm/yyyy"
+            type: transaction.type,
+            description: `${transaction.source.description} -> ${transaction.destination.description}`,
+            amount: transaction.amount,
+            balance: transaction.balance,
+          }));
 
-    return (
-        // if ledger data is nulll display user can be simple complicated or duplicate
-        // else call the header and transaction list component
-        <div>
+          // Set the formatted ledger data in the state
+          setLedger(formattedLedger);
+          setBalance(formattedLedger[0]?.balance || 0);
+          setIsLoading(false);
+        }
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.error("Error fetching ledger data:", error);
+        
+      });
+  }, [props.username]);
 
-            {ledger.length===0? (
-                <div>
-                    <h1>user can be simple, complicated or duplicate</h1>
-                </div>
-            ) : (
-                <div>
-                    <Header balance={balance} />
-                    <TransactionList transactions={ledger} />
-                </div>
-            )}
+  return (
+    // if ledger data is nulll display user can be simple complicated or duplicate
+    // else call the header and transaction list component
+    <div>
+      {isLoading && <div>Loading...</div>}
+      {!isLoading && (
+        <>
+          {error && <div>{error}</div>}
+          {!error && (
+            <div>
+              <Header balance={balance} />
+              <TransactionList transactions={ledger} />
             </div>
-        // <div>
-        //     {/* Render the TransactionList component with the ledger data */}
-        //     <Header balance={balance} />
-        //     <TransactionList transactions={ledger} />
-        // </div>
-    );
+          )}
+        </>
+      )}
+    </div>
+    // <div>
+    //     {/* Render the TransactionList component with the ledger data */}
+    //     <Header balance={balance} />
+    //     <TransactionList transactions={ledger} />
+    // </div>
+  );
 }
 
 export { ProcessTransaction };

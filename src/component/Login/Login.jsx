@@ -23,6 +23,7 @@ function LoginPage({ onSubmit }) {
             type="text"
             id="username"
             name="username"
+            placeholder='Enter complicated,simple, or duplicate'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
