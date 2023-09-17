@@ -6,13 +6,13 @@ async function fetchLedgerData(user){
         let ledgerData = null;
         switch(user){
             case 'complicated':
-                   ledgerData = require('../Data/complicated_ledger.json');
+                   ledgerData = require('../data/complicated_ledger.json');
                    break
             case 'simple':
-                 ledgerData = require('../Data/simple_ledger.json');
+                 ledgerData = require('../data/simple_ledger.json');
                  break;
             case 'duplicate':
-                 ledgerData = require('../Data/duplicate_ledger.json'); 
+                 ledgerData = require('../data/duplicate_ledger.json'); 
                  break;  
             default:
                 ledgerData=[];         

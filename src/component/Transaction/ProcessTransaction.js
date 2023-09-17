@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TransactionList } from "./TransactionList";
 import { fetchLedgerData } from "../../service/mockApi";
-import { Header } from "./Top";
+import { Top } from "./Top";
 
 function ProcessTransaction(props) {
   // State to hold ledger data
@@ -12,13 +12,14 @@ function ProcessTransaction(props) {
 
   useEffect(() => {
     // Fetch ledger data from the API
-    console.log(props.username);
     fetchLedgerData(props.username.toLowerCase())
       .then((ledgerData) => {
+        // if ledger data is null than set error
         if (ledgerData.length === 0) {
           setError("User not found");
             setIsLoading(false);
         } else {
+            // Remove duplicate transactions
           const uniqueActivityIds = new Set();
           const uniqueTransactions = [];
           for (const transaction of ledgerData) {
@@ -37,7 +38,7 @@ function ProcessTransaction(props) {
           const formattedLedger = uniqueTransactions.map((transaction) => ({
             date: new Date(transaction.date).toLocaleDateString("en-GB"), // Format date as "dd/mm/yyyy"
             type: transaction.type,
-            description: `${transaction.source.description} -> ${transaction.destination.description}`,
+            description: CreateDescription(transaction.source.description,transaction.destination.description,transaction.type),
             amount: transaction.amount,
             balance: transaction.balance,
           }));
@@ -56,8 +57,8 @@ function ProcessTransaction(props) {
   }, [props.username]);
 
   return (
-    // if ledger data is nulll display user can be simple complicated or duplicate
-    // else call the header and transaction list component
+    //  When API is loading show loading message
+    // When API has returned data either show the error message or the ledger data
     <div>
       {isLoading && <div>Loading...</div>}
       {!isLoading && (
@@ -65,19 +66,53 @@ function ProcessTransaction(props) {
           {error && <div>{error}</div>}
           {!error && (
             <div>
-              <Header balance={balance} />
+              <Top balance={balance} />
               <TransactionList transactions={ledger} />
             </div>
           )}
         </>
       )}
     </div>
-    // <div>
-    //     {/* Render the TransactionList component with the ledger data */}
-    //     <Header balance={balance} />
-    //     <TransactionList transactions={ledger} />
-    // </div>
   );
+}
+// This function is used to create the description of the transaction
+function CreateDescription(sourceDescription, destinationDescription,typeOfTransaction) {
+    // if any parameter is null than makes its value ****
+    if(sourceDescription===undefined || sourceDescription===null){
+        sourceDescription="****";
+    }
+    if(destinationDescription===undefined || destinationDescription===null){
+        destinationDescription="****";
+    }
+    if(typeOfTransaction===null || typeOfTransaction===undefined){
+        typeOfTransaction="****";
+    }
+    var description="";
+    typeOfTransaction=typeOfTransaction.toUpperCase();
+    switch(typeOfTransaction){
+        case "TRANSFER":
+              description=`Transfer from ${sourceDescription} to ${destinationDescription}`;
+              break;
+        case "WITHDRAW":
+                description=`Withdrawl from  ${sourceDescription} to ${destinationDescription}`;
+                break;
+        case "INVESTMENT":
+                description=`Investment done -> ${sourceDescription} to ${destinationDescription}`; 
+                break;  
+        case'DEPOSIT':
+                description=`Deposit done from ${sourceDescription} to  ${destinationDescription}`;
+                break
+        case 'REFUND':
+                description=`Refund came from ${sourceDescription} to ${destinationDescription}`; 
+                break;
+        case 'TRANSFER':
+                description=`Transfer from ${sourceDescription} to ${destinationDescription}`;
+                break;               
+        default:
+            description=`${sourceDescription} ${destinationDescription}`;        
+    }
+    return description;
+
 }
 
 export { ProcessTransaction };
