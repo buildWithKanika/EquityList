@@ -55,7 +55,8 @@
   font-size: 0.9em;
   font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 100%; 
+  overflow: auto;
+  width: 100%;
 }
 
 .styled-table thead tr {

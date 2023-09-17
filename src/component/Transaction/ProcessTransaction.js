@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { TransactionList } from "./TransactionList";
 import { fetchLedgerData } from "../../service/mockApi";
-import { Header } from "./header";
+import { Header } from "./Header";
 
-function ProcessTransaction() {
+function ProcessTransaction(props) {
     // State to hold ledger data
     const [ledger, setLedger] = useState([]);
     const [balance, setBalance] = useState(0);
 
     useEffect(() => {
         // Fetch ledger data from the API
-        fetchLedgerData()
+        console.log(props.username)
+        fetchLedgerData(props.username.toLowerCase())
             .then((ledgerData) => {
+                // if ledger data is nulll 
                 const uniqueActivityIds = new Set();
                 const uniqueTransactions = [];
                 for (const transaction of ledgerData) {
@@ -20,7 +22,7 @@ function ProcessTransaction() {
                         uniqueTransactions.push(transaction);
                     }
                 }
-
+                
                 // Sort transactions by date
                 uniqueTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -43,11 +45,26 @@ function ProcessTransaction() {
     }, []);
 
     return (
+        // if ledger data is nulll display user can be simple complicated or duplicate
+        // else call the header and transaction list component
         <div>
-            {/* Render the TransactionList component with the ledger data */}
-            <Header balance={balance} />
-            <TransactionList transactions={ledger} />
-        </div>
+
+            {ledger.length===0? (
+                <div>
+                    <h1>user can be simple, complicated or duplicate</h1>
+                </div>
+            ) : (
+                <div>
+                    <Header balance={balance} />
+                    <TransactionList transactions={ledger} />
+                </div>
+            )}
+            </div>
+        // <div>
+        //     {/* Render the TransactionList component with the ledger data */}
+        //     <Header balance={balance} />
+        //     <TransactionList transactions={ledger} />
+        // </div>
     );
 }
 

@@ -1,11 +1,11 @@
 
   /* Style your header */
-  header {
-    display: flex;
+  Header {
     background-color: #333;
     color: #fff;
-    width: 100%;
+    width: max;
     height: 20%;
+    overflow: auto;
   }
   
 

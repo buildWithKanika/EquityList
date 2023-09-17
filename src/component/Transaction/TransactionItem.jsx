@@ -1,5 +1,7 @@
 import React from "react"; 
 import "../style/Transaction.css"; 
+// This component is used to display a single transaction
+// TransactionItem.jsx is a child component of TransactionList.jsx
 function TransactionItem({ transaction }) {
     return (
             <tr>
