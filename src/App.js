@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Login } from './component/xyz/Login.jsx';
-import { ProcessTransaction } from './component/transaction/ProcessTransaction.js';
+import { Login } from './component/login/Login.jsx';
+import { ProcessTransaction } from './component/transaction/ProcessTransaction';
 
 function App() {
   const [submitted, setSubmitted] = useState(false);
