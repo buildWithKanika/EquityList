@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Equality List Project
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+This project is designed to manage equality lists effectively. It provides a user-friendly interface for managing three types of ledger data: simple, complicated, and duplicate. These types of data have been identified based on the provided assignment, which seemed to contain three distinct categories of ledger data provided by bank api
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To get started with this project, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Navigate to the 'equality-list' folder**: Use your command line interface to go into the project directory.
 
-### `npm test`
+   ```bash
+   cd equality-list
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install Dependencies**: Run the following command to install the necessary dependencies using npm:
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start the Application**: Start the application by running the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Access the Login Screen**: After running the application, open your web browser and access the login screen. The project should be running at `http://localhost:3000` by default. If the port is different, it will be displayed in your terminal.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Once you have accessed the login screen, you have to give one the folowwing user name
+![image](https://github.com/buildWithKanika/EquityList/assets/46522747/a19be813-16c8-4f22-a2a5-37bcb435803b)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+you can give the user name as "simple","complicated","duplicate"
+   
+Ffter giving the user name Please click on the login than you can see the detail 
+![image](https://github.com/buildWithKanika/EquityList/assets/46522747/3ca163f3-77f1-47ce-bd1a-f687f7723c94)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**In order to see again the different user detail please refersh the page**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+- **Simple**: submit this user to view simple ledger data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Complicated**:submit this user to view  complicated ledger data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Duplicate**: submit this user to view  duplicate ledger data.
 
-### Code Splitting
+As per the assignment bank api can give the response which can be simple_ledger, duplicate_ledger , complicated_ledger.
+For the purpose of how all of these different data will look on UI , i have considered there are three user **simple** , **complicated** and **Duplicate**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contributions to this project are welcome. If you would like to contribute, please follow these steps:
 
-### Making a Progressive Web App
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and test them thoroughly.
+4. Submit a pull request with a clear description of your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
+If you have any questions or need further assistance, please feel free to contact us at [kala,kanika1998@gmail.com].
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
