@@ -12,7 +12,7 @@ To get started with this project, follow these steps:
 1. **Navigate to the 'equality-list' folder**: Use your command line interface to go into the project directory.
 
    ```bash
-   cd equality-list
+   cd EquityList
    ```
 
 2. **Install Dependencies**: Run the following command to install the necessary dependencies using npm:
