@@ -33,10 +33,13 @@ To get started with this project, follow these steps:
 
 Once you have accessed the login screen, you have to give one the folowwing user name
 ![image](https://github.com/buildWithKanika/EquityList/assets/46522747/a19be813-16c8-4f22-a2a5-37bcb435803b)
+
 you can give the user name as "simple","complicated","duplicate"
-after give the user name you can see the detail 
+   
+Ffter giving the user name Please click on the login than you can see the detail 
 ![image](https://github.com/buildWithKanika/EquityList/assets/46522747/3ca163f3-77f1-47ce-bd1a-f687f7723c94)
-In order to see again the different user detail please refersh the page
+
+**In order to see again the different user detail please refersh the page**
 
 
 - **Simple**: submit this user to view simple ledger data.
